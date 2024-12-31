@@ -14,21 +14,21 @@ public class LogicaCalculadora implements ServicioCalculadora{
     
     private int resultado;
     
-    @Override
+    
     public void sumar(Calculadora objCalculadora){
         
         
         resultado = objCalculadora.getNumero1() + objCalculadora.getNumero2();
         objCalculadora.setResultado(resultado);
     }
-    @Override
+    
     public void resta(Calculadora objCalculadora){
         
         
         resultado = objCalculadora.getNumero1() - objCalculadora.getNumero2();
         objCalculadora.setResultado(resultado);
     }
-    @Override
+    
     public void dividir(Calculadora objCalculadora) throws ExcepcionesPersonalizadas{
         
         if ((objCalculadora.getNumero1() == 0) || (objCalculadora.getNumero2() == 0)) {
@@ -38,7 +38,7 @@ public class LogicaCalculadora implements ServicioCalculadora{
         resultado = objCalculadora.getNumero1() / objCalculadora.getNumero2();
         objCalculadora.setResultado(resultado);
     }
-    @Override
+    
     public void multiplicar(Calculadora objCalculadora){
         
         resultado = objCalculadora.getNumero1() * objCalculadora.getNumero2();
@@ -46,6 +46,28 @@ public class LogicaCalculadora implements ServicioCalculadora{
     }
     
     
+    public void operadores(Calculadora objCalculadora) throws ExcepcionesPersonalizadas, Exception{
+        
+        switch (objCalculadora.getOperador()) {
+            case "+":
+                sumar(objCalculadora);
+                
+                break;
+            case "-":
+                resta(objCalculadora);
+                break;
+            case "*":
+                multiplicar(objCalculadora);
+                break;
+            case "/":
+                dividir(objCalculadora);
+                break;
+            default:
+                throw new Exception("Mas de una operacion");
+        }
+        
+        
+    }
     
     
 }

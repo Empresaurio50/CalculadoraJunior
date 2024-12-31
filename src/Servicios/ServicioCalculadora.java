@@ -13,10 +13,7 @@ import Entidades.Calculadora;
  */
 public interface ServicioCalculadora {
     
-    void sumar(Calculadora objCalculadora);
-    void resta(Calculadora objCalculadora);
-    void dividir(Calculadora objCalculadora) throws ExcepcionesPersonalizadas;
-    void multiplicar(Calculadora objCalculadora);
+    void operadores(Calculadora objCalculadora) throws ExcepcionesPersonalizadas, Exception;
     
     
     

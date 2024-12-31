@@ -11,6 +11,16 @@ package Entidades;
 public class Calculadora {
     
     private int numero1, numero2, resultado;
+    private String operador;
+
+    public String getOperador() {
+        return operador;
+    }
+
+    public void setOperador(String operador) {
+        this.operador = operador;
+    }
+    
 
     public int getResultado() {
         return resultado;
@@ -19,8 +29,6 @@ public class Calculadora {
     public void setResultado(int resultado) {
         this.resultado = resultado;
     }
-
-
 
     public int getNumero1() {
         return numero1;
