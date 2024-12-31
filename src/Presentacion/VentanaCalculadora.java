@@ -7,6 +7,7 @@ import Entidades.Calculadora;
 import Logica.LogicaCalculadora;
 import Servicios.ServicioCalculadora;
 import javax.swing.JOptionPane;
+import CustomExcepcion.ExcepcionesPersonalizadas;
 
 /**
  *
@@ -335,15 +336,39 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btt0ActionPerformed
 
     private void bttDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttDivisionActionPerformed
-        this.lblVista.setText(lblVista.getText() + "/");
+        
+        objCalculadora = new Calculadora();
+        
+        objCalculadora.setNumero1(Integer.parseInt(lblVista.getText()));
+        
+        objCalculadora.setOperador("/");
+        
+        lblVista.setText("");
+        
+        
     }//GEN-LAST:event_bttDivisionActionPerformed
 
     private void bttRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttRestaActionPerformed
-        this.lblVista.setText(lblVista.getText() + "-");
+        
+        objCalculadora = new Calculadora();
+        
+        objCalculadora.setNumero1(Integer.parseInt(lblVista.getText()));
+        
+        objCalculadora.setOperador("-");
+        
+        lblVista.setText("");
     }//GEN-LAST:event_bttRestaActionPerformed
 
     private void bttMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttMultiplicarActionPerformed
-        this.lblVista.setText(lblVista.getText() + "*");
+        
+        objCalculadora = new Calculadora();
+        
+        objCalculadora.setNumero1(Integer.parseInt(lblVista.getText()));
+        
+        objCalculadora.setOperador("*");
+        
+        lblVista.setText("");
+        
     }//GEN-LAST:event_bttMultiplicarActionPerformed
 
     private void bttLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttLimpiarActionPerformed
@@ -357,7 +382,10 @@ public class VentanaCalculadora extends javax.swing.JFrame {
         
         try {
             servicioCalculadora.operadores(objCalculadora);
-        } catch (Exception e) {
+        }catch(ExcepcionesPersonalizadas e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } 
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         
